@@ -1,8 +1,5 @@
 /* jshint mocha: true */
-/*testing*/
 
-
-/*more test*/
 var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
