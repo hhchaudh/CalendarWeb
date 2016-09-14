@@ -6,6 +6,22 @@
 
 </head>
 <body>
+
+<!--Temp date picker to test month variability-->
+<input type="month" id="myMonth" value="2014-05">
+<button onclick="myFunction()">Go</button>
+<p id="update"></p>
+
+
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myMonth").value;
+        document.getElementById("update").innerHTML = x;
+    }
+</script>
+<!--Calendar format setup-->
 <TABLE BORDER=3 CELLSPACING=3 CELLPADDING=3>
     <TR>
         <TD COLSPAN="7" ALIGN=center><B>September 2016</B></TD>
