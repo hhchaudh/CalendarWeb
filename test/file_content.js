@@ -1,8 +1,9 @@
 /* jshint mocha: true */
+<<<<<<< HEAD
+=======
 /*testing hihhihiuhjfjsakl;*/
+>>>>>>> origin/master
 
-
-/*more test*/
 var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
