@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+
+
+    <title>Calendar Component</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!-- STYLE SECTION -->
+
+<style type="text/css">
+
+</style>
+
+<!-- HTML SECTION -->
+<ul>
+    <li class="dropdown">
+        <a href="sampleMonthly.html" class="dropbtn">Monthly View</a>
+        <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <a href="dayView.html">Day View</a>
+            <a href="yearly.html">Month View</a>
+            <a href="#">Week View</a>
+        </div>
+    </li>
+</ul>
+
+
+<div class="wrapper">
+    <div class="header">
+        <p>September 2016</p>
+    </div><!-- end header -->
+    <div class="calendar-body">
+        <div class="row weekdays">
+            <div class="col-xs-1"><p>Su</p></div><!-- end col-xs-1 -->
+            <div class="col-xs-1"><p>Mo</p></div><!-- end col-xs-1 -->
+            <div class="col-xs-1"><p>Tu</p></div><!-- end col-xs-1 -->
+            <div class="col-xs-1"><p>We</p></div><!-- end col-xs-1 -->
+            <div class="col-xs-1"><p>Th</p></div><!-- end col-xs-1 -->
+            <div class="col-xs-1"><p>Fr</p></div><!-- end col-xs-1 -->
+            <div class="col-xs-1"><p>Sa</p></div><!-- end col-xs-1 -->
+        </div><!-- end row -->
+
+        <div class="row dates">
+            <div class="col-xs-1"><a href="#"><p class="inactive">28</p></a></div>
+            <div class="col-xs-1"><a href="#"><p class="inactive">29</p></a></div>
+            <div class="col-xs-1"><a href="#"><p class="inactive">30</p></a></div>
+            <div class="col-xs-1"><a href="#"><p class="inactive">31</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>1</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>2</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>3</p></a></div>
+        </div><!-- end row -->
+
+        <div class="row dates">
+            <div class="col-xs-1"><a href="#"><p>4</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>5</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>6</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>7</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>8</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>9</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>10</p></a></div>
+        </div><!-- end row -->
+
+        <div class="row dates">
+            <div class="col-xs-1"><a href="#"><p>11</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>12</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>13</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>14</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>15</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>16</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>17</p></a></div>
+        </div><!-- end row -->
+
+        <div class="row dates">
+            <div class="col-xs-1"><a href="#"><p>18</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>19</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>20</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>21</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>22</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>23</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>24</p></a></div>
+        </div><!-- end row -->
+
+        <div class="row dates">
+            <div class="col-xs-1"><a href="#"><p>25</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>26</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>27</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>28</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>29</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>30</p></a></div>
+            <div class="col-xs-1"><a href="#"><p>31</p></a></div>
+        </div><!-- end row -->
+
+        <div class="line"></div>
+
+        <div class="current-date">Thursday, September 15</div>
+    </div><!-- end calendar-body -->
+</div><!-- end wrapper -->
+
+</body>
+</html>
+
+
