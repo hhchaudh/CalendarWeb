@@ -1,20 +1,8 @@
 <!doctype html>
 
 <html class="no-js" lang="">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
-
     <style>
         ul {
             list-style-type: none;
@@ -66,15 +54,109 @@
             display: block;
         }
     </style>
-
 </head>
 <body>
+
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<p>Hello world! This is HTML5 Boilerplate.</p>
+<ul>
+    <li class="dropdown">
+        <a href="monthlyView.html.html" class="dropbtn">Month View</a>
+        <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <a href="dayView.html.html">Day View</a>
+            <a href="#">Week View</a>
+            <a href="yearView.html">Year View</a>
+        </div>
+    </li>
+</ul>
+
+<!--Temp date picker to test month variability-->
+<input type="month" id="myMonth" value="2014-05">
+<button onclick="myFunction()">Go</button>
+<p id="update"></p>
+
+
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myMonth").value;
+        document.getElementById("update").innerHTML = x;
+    }
+</script>
+<!--Calendar format setup-->
+<TABLE BORDER=3 CELLSPACING=3 CELLPADDING=3>
+    <TR>
+        <TD COLSPAN="7" ALIGN=center><B>September 2016</B></TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center>Sun</TD>
+        <TD ALIGN=center>Mon</TD>
+        <TD ALIGN=center>Tue</TD>
+        <TD ALIGN=center>Wed</TD>
+        <TD ALIGN=center>Thu</TD>
+        <TD ALIGN=center>Fri</TD>
+        <TD ALIGN=center>Sat</TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center>1</TD>
+        <TD ALIGN=center>2</TD>
+        <TD ALIGN=center>3</TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center>4</TD>
+        <TD ALIGN=center>5</TD>
+        <TD ALIGN=center>6</TD>
+        <TD ALIGN=center>7</TD>
+        <TD ALIGN=center>8</TD>
+        <TD ALIGN=center>9</TD>
+        <TD ALIGN=center>10</TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center>11</TD>
+        <TD ALIGN=center>12</TD>
+        <TD ALIGN=center>13</TD>
+        <TD ALIGN=center>14</TD>
+        <TD ALIGN=center>15</TD>
+        <TD ALIGN=center>16</TD>
+        <TD ALIGN=center>17</TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center>18</TD>
+        <TD ALIGN=center>19</TD>
+        <TD ALIGN=center>20</TD>
+        <TD ALIGN=center>21</TD>
+        <TD ALIGN=center>22</TD>
+        <TD ALIGN=center>23</TD>
+        <TD ALIGN=center>24</TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center>25</TD>
+        <TD ALIGN=center>26</TD>
+        <TD ALIGN=center>27</TD>
+        <TD ALIGN=center>28</TD>
+        <TD ALIGN=center>29</TD>
+        <TD ALIGN=center>30</TD>
+        <TD ALIGN=center>29</TD>
+    </TR>
+    <TR>
+        <TD ALIGN=center>31</TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+        <TD ALIGN=center></TD>
+
+    </TR>
+</TABLE>
 
 </body>
 </html>
