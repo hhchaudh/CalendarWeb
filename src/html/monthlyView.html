@@ -95,32 +95,32 @@
         heading[5] = "Fri"
         heading[6] = "Sat"
 
-        var f = 3 //first day, VARIABLE TO MONTH
-        var l = 31 + f //last day, VARIABLE TO MONTH
-        var x = 1
+        var f=0//first day, VARIABLE TO MONTH
+        var l=30//last day, VARIABLE TO MONTH
+        var x=1
 
         var cal = new Array()
 
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 6; i++){
             cal[i] = new Array(7)
         }
 
 
-        for (var i = 0; i < 6; i++) {
-            for (var j = 0; j < 7; j++) {
-                cal[i][j] = ""
+        for(var i=0; i<6; i++){
+            for(var j=0; j<7; j++){
+                cal[i][j]=""
             }
         }
 
         startOfWeek = f
-        for (var i = 0; i < 6; i++) {
-            for (var j = startOfWeek; j < 7; j++) {
-                cal[i][j] = x
-                x++
-                if (7 * i + j > l) {
+        for(var i=0; i<6; i++){
+            for(var j=startOfWeek; j<7; j++){
+                cal[i][j]=x
+                if(7*i+j > l + f - 2){
                     i = 6
                     j = 7
                 }
+                x++
                 startOfWeek = 0
             }
         }
