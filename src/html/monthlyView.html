@@ -72,9 +72,83 @@
 </head>
 <body>
 
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+<div id="metric_results">
+    <input type="button" id="create" value="Click here" onclick="Javascript:addTable()">
+    <!--http://stackoverflow.com/questions/20407781/dynamically-generated-table-using-an-array-to-fill-in-td-values-->
+</div>
+
+<script>
+    function addTable() {
+        var myTableDiv = document.getElementById("metric_results")
+        var table = document.createElement('TABLE')
+        var tableBody = document.createElement('TBODY')
+
+        table.border = '0'
+        table.appendChild(tableBody);
+
+        var heading = new Array();
+        heading[0] = "Sun"
+        heading[1] = "Mon"
+        heading[2] = "Tues"
+        heading[3] = "Wed"
+        heading[4] = "Thurs"
+        heading[5] = "Fri"
+        heading[6] = "Sat"
+
+        var f = 3 //first day, VARIABLE TO MONTH
+        var l = 31 + f //last day, VARIABLE TO MONTH
+        var x = 1
+
+        var cal = new Array()
+
+        for (var i = 0; i < 6; i++) {
+            cal[i] = new Array(7)
+        }
+
+
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 7; j++) {
+                cal[i][j] = ""
+            }
+        }
+
+        startOfWeek = f
+        for (var i = 0; i < 6; i++) {
+            for (var j = startOfWeek; j < 7; j++) {
+                cal[i][j] = x
+                x++
+                if (7 * i + j > l) {
+                    i = 6
+                    j = 7
+                }
+                startOfWeek = 0
+            }
+        }
+
+        //TABLE COLUMNS
+        var tr = document.createElement('TR');
+        tableBody.appendChild(tr);
+        for (i = 0; i < heading.length; i++) {
+            var th = document.createElement('TH')
+            th.width = '75';
+            th.appendChild(document.createTextNode(heading[i]));
+            tr.appendChild(th);
+        }
+
+        //TABLE ROWS
+        for (i = 0; i < cal.length; i++) {
+            var tr = document.createElement('TR');
+            for (j = 0; j < cal[i].length; j++) {
+                var td = document.createElement('TD')
+                td.appendChild(document.createTextNode(cal[i][j]));
+                tr.appendChild(td)
+            }
+            tableBody.appendChild(tr);
+        }
+        myTableDiv.appendChild(table)
+    }
+
+</script>
 
 <ul>
     <li class="dropdown">
@@ -88,7 +162,7 @@
     </li>
 </ul>
 
-<!--Temp date picker to test month variability-->
+<!--Temp date picker to test month variability-
 <input type="month" id="myMonth" value="2016-09">
 <button onclick="myFunction()">Test</button>
 
@@ -101,17 +175,14 @@
 
 
 
-<!--Calendar format setup-->
+<!--Calendar format setup
 <table CELLSPACING=3 CELLPADDING=3>
-    <th>
-        <td
-            COLSPAN="7">
+    <th colspan="7" bgcolor="#a9a9a9">
             <b>
                 <p id="update"></p>
             </b>
-        </td>
     </th>
-    <tr>
+    <tr bgcolor="gray">
         <td>Sun</td>
         <td>Mon</td>
         <td>Tue</td>
@@ -176,6 +247,7 @@
 
     </tr>
 </table>
+-->
 
 </body>
 </html>
