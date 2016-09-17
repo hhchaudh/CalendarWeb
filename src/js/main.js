@@ -7,21 +7,6 @@ function saveText() {
     document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 }
 
-function dataSave()
-{
-    var user = document.getElementById("user").value ;
-    //localStorage["user"] = user ;
-    localStorage.setItem("user", user) ;
-    alert("gmail id saved") ;
-    console.log("gmail id saved")
-}
-
-function dataLoad()
-{
-    var user = localStorage["user"] ;
-    document.getElementById("user").value = user ;
-}
-
 function passString(month){
     window.localStorage.setItem("option", month);
 }
@@ -32,22 +17,83 @@ function displayString()
     console.log(month);
 }
 
-$("#btn_a").on("click", function() {
-    alert("a is clicked");
-});
+function openWeek(id) {
+    alert(id);
+}
 
+function addTable() {
+    var myTableDiv = document.getElementById("metric_results")
+    var table = document.createElement('TABLE')
+    var tableBody = document.createElement('TBODY')
 
-$("#btn_b").on("click", function() {
-    return doSomething(p,q,null);
-});
+    table.border = '0'
+    table.appendChild(tableBody);
 
+    var heading = new Array();
+    heading[0] = "Sun"
+    heading[1] = "Mon"
+    heading[2] = "Tues"
+    heading[3] = "Wed"
+    heading[4] = "Thurs"
+    heading[5] = "Fri"
+    heading[6] = "Sat"
 
-function doSomething(p,q,r){
-    if(r != null){
-alert("r is not null");
-    } else {
-        alert("r is null");
-//do something for btn_b and return
+    var f = 6 //first day, VARIABLE TO MONTH
+    var l = 30 //last day, VARIABLE TO MONTH
+    var x = 1
+
+    var cal = new Array()
+
+    for (var i = 0; i < 6; i++) {
+        cal[i] = new Array(7)
     }
 
+
+    for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 7; j++) {
+            cal[i][j] = ""
+        }
+    }
+
+    startOfWeek = f
+    for (var i = 0; i < 6; i++) {
+        for (var j = startOfWeek; j < 7; j++) {
+            cal[i][j] = x
+            if (7 * i + j > l + f - 2) {
+                i = 6
+                j = 7
+            }
+            x++
+            startOfWeek = 0
+        }
+    }
+
+    //TABLE COLUMNS
+    var tr = document.createElement('TR');
+    tableBody.appendChild(tr);
+    for (i = 0; i < heading.length; i++) {
+        var th = document.createElement('TH')
+        th.width = '75';
+        th.appendChild(document.createTextNode(heading[i]));
+        tr.appendChild(th);
+    }
+
+    //TABLE ROWS
+    for (i = 0; i < cal.length; i++) {
+        var tr = document.createElement('TR');
+        if (f + l >= 35 || i < 5)
+            tr.setAttribute("class", "days")
+        tr.setAttribute("id", "week" + i)
+        tr.setAttribute("onclick", "openWeek(" + i + ")")
+        //"row1"  -> "row" + i
+        //var oldThingThatYouWant = document.getElementByID("week0")
+
+        for (j = 0; j < cal[i].length; j++) {
+            var td = document.createElement('TD')
+            td.appendChild(document.createTextNode(cal[i][j]));
+            tr.appendChild(td)
+        }
+        tableBody.appendChild(tr);
+    }
+    myTableDiv.appendChild(table)
 }
