@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<div id="metric_results">
-    <input type="button" id="create" value="Click here" onclick="addTable()">
-    <!--http://stackoverflow.com/questions/20407781/dynamically-generated-table-using-an-array-to-fill-in-td-values-->
-</div>
+
 
 <style type="text/css">
     table {
@@ -25,7 +21,7 @@
     }
 
 </style>
-=======
+
 <!doctype html>
 
 <html class="no-js" lang="">
@@ -55,8 +51,13 @@
 
     </style>
 </head>
-<body>
->>>>>>> origin/master
+<body onload="setMonth()">
+
+
+<div id="metric_results" value="Click here" onload="addTable(6, 30)">
+    <!--<input type="button" id="create" value="Click here" onload="addTable(6, 30)">-->
+    <!--http://stackoverflow.com/questions/20407781/dynamically-generated-table-using-an-array-to-fill-in-td-values-->
+</div>
 
 <script type="text/javascript">
 
@@ -64,19 +65,69 @@
         alert(id);
     }
 
-<<<<<<< HEAD
-=======
+</script>
+
 <script>
     function openWeek(id) {
         alert(id);
     }
-
->>>>>>> origin/master
-    function addTable() {
+    function setMonth(){
         var month = localStorage["month"] ;
-        alert(month)
+        if(month=="August")
+        {
+            addTable(1, 31)
+        }
+        else if(month=="September")
+        {
+            addTable(4, 30)
+        }
+        else if(month=="October")
+        {
+            addTable(6, 31)
+        }
+        else if(month=="November")
+        {
+            addTable(2, 30)
+        }
+        else if(month=="December")
+        {
+            addTable(4, 31)
+        }
+        else if(month=="January")
+        {
+            addTable(0, 31)
+        }
+        else if(month=="February")
+        {
+            addTable(3, 28)
+        }
+        else if(month=="March")
+        {
+            addTable(3, 31)
+        }
+        else if(month=="April")
+        {
+            addTable(6, 30)
+        }
+        else if(month=="May")
+        {
+            addTable(1, 31)
+        }
+        else if(month=="June")
+        {
+            addTable(4, 30)
+        }
+        else if(month=="July")
+        {
+            addTable(6, 31)
+        }
     }
-    /*
+
+    function addTable(f, l) {
+//        var month = localStorage["month"] ;
+//        alert(month)
+//    }
+
         var myTableDiv = document.getElementById("metric_results")
         var table = document.createElement('TABLE')
         var tableBody = document.createElement('TBODY')
@@ -93,8 +144,10 @@
         heading[5] = "Fri"
         heading[6] = "Sat"
 
-        var f = 6 //first day, VARIABLE TO MONTH
-        var l = 30 //last day, VARIABLE TO MONTH
+
+
+//        var f = 6 //first day, VARIABLE TO MONTH
+//        var l = 30 //last day, VARIABLE TO MONTH
         var x = 1
 
         var cal = new Array()
@@ -152,11 +205,10 @@
         }
         myTableDiv.appendChild(table)
     }
-*/
 
 
-<<<<<<< HEAD
-=======
+
+
 </script>
 <!--
 <ul>
@@ -183,5 +235,8 @@
 </script>
 
 
->>>>>>> origin/master
+>>>>>>> origin/master-->
+
+</body>
+</html>
 
