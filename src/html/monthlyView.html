@@ -73,51 +73,51 @@
     }
     function setMonth(){
         var month = localStorage["month"] ;
-        if(month=="August")
+        if(month == 8)
         {
             addTable(1, 31)
         }
-        else if(month=="September")
+        else if(month == 9)
         {
             addTable(4, 30)
         }
-        else if(month=="October")
+        else if(month == 10)
         {
             addTable(6, 31)
         }
-        else if(month=="November")
+        else if(month == 11)
         {
             addTable(2, 30)
         }
-        else if(month=="December")
+        else if(month == 12)
         {
             addTable(4, 31)
         }
-        else if(month=="January")
+        else if(month == 1)
         {
             addTable(0, 31)
         }
-        else if(month=="February")
+        else if(month == 2)
         {
             addTable(3, 28)
         }
-        else if(month=="March")
+        else if(month == 3)
         {
             addTable(3, 31)
         }
-        else if(month=="April")
+        else if(month == 4)
         {
             addTable(6, 30)
         }
-        else if(month=="May")
+        else if(month == 5)
         {
             addTable(1, 31)
         }
-        else if(month=="June")
+        else if(month == 6)
         {
             addTable(4, 30)
         }
-        else if(month=="July")
+        else if(month == 7)
         {
             addTable(6, 31)
         }
@@ -125,9 +125,50 @@
 
     function addTable(f, l) {
         var month = localStorage["month"]
+        var monthName = intToMonth(month)
+        function intToMonth(month)
+        {
+            var x = ""
+            if (month == 1 || month == 13) {
+                x = "January"
+            }
+            else if(month == 2) {
+                x = "February"
+            }
+            else if(month == 3) {
+                x = "March"
+            }
+            else if(month == 4) {
+                x = "April"
+            }
+            else if(month == 5) {
+                x = "May"
+            }
+            else if(month == 6) {
+                x = "June"
+            }
+            else if(month == 7) {
+                x = "July"
+            }
+            else if(month == 8) {
+            x = "August"
+        }
+        else if(month == 9) {
+            x = "September"
+        }
+        else if(month == 10) {
+            x = "October"
+        }
+        else if(month == 11) {
+            x = "November"
+        }
+        else if(month == 12 || month == 0) {
+            x = "December"
+        }
+            return x
+        }
         var name = document.createElement("H")
-        name.setAttribute("id", "monthName")
-        var text = document.createTextNode(month)
+        var text = document.createTextNode(monthName)
         name.appendChild(text)
 
 
@@ -211,6 +252,8 @@
 
 </script>
 
+
+<button></button>
 
 </body>
 </html>
