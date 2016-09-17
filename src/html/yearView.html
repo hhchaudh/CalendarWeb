@@ -1,77 +1,15 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
 
-        li {
-            float: left;
-        }
-
-        li a, .dropbtn {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover, .dropdown:hover .dropbtn {
-            background-color: red;
-        }
-
-        li.dropdown {
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown-content a:hover {background-color: #f1f1f1}
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
 </head>
 <body>
 
 <title>Calendar Component</title>
 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<!-- STYLE SECTION -->
-
-<ul>
-    <li class="dropdown">
-        <a href="yearView.html" class="dropbtn">Year View</a>
-        <div class="dropdown-content">
-            <a href="index.html">Home</a>
-            <a href="dayView.html">Day View</a>
-            <a href="sampleMonthly.html">Month View</a>
-            <a href="#">Week View</a>
-        </div>
-    </li>
-</ul>
 
 <!-- HTML SECTION -->
 
@@ -82,7 +20,14 @@
     <div class="calendar-body">
 
         <div class="row months">
-            <div class="col-lg-1"><a href="#"><p>August</p></a></div>
+            <div id = "a" class="col-lg-1">  <a href="monthlyView.html">  <p>August</p></a></div>
+            <script>
+                document.getElementById("a").addEventListener("click", function ()
+                {
+                    var user = "August 1, 2016 01:00:00" ;
+                    localStorage.setItem("month", user) ;
+                } , false);
+            </script>
             <div class="col-lg-1"><a href="#"><p>September</p></a></div>
             <div class="col-lg-1"><a href="#"><p>October</p></a></div>
             <div class="col-lg-1"><a href="#"><p>November</p></a></div>
