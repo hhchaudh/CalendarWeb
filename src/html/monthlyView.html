@@ -1,84 +1,41 @@
-<!doctype html>
-
-<html class="no-js" lang="">
-
-<!--table css from http://www.w3schools.com/css/css_table.asp-->
-
-<head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a, .dropbtn {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover, .dropdown:hover .dropbtn {
-            background-color: red;
-        }
-
-        li.dropdown {
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown-content a:hover {background-color: #f1f1f1}
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-
-    table {
-    border-collapse: collapse;
-    width: 100%;
-    }
-
-    th, td {
-    padding: 8px;
-    text-align: center;
-    }
-
-    tr:hover{background-color:#f5f5f5}
-    </style>
-</head>
-<body>
-
 <div id="metric_results">
-    <input type="button" id="create" value="Click here" onclick="Javascript:addTable()">
+    <input type="button" id="create" value="Click here" onclick="addTable()">
     <!--http://stackoverflow.com/questions/20407781/dynamically-generated-table-using-an-array-to-fill-in-td-values-->
 </div>
 
-<script>
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        padding: 8px;
+        text-align: center;
+    }
+
+    .days:hover {
+        background-color: #696969
+    }
+
+</style>
+
+<script type="text/javascript">
+
+    function openWeek(id) {
+        alert(id);
+    }
+
     function addTable() {
+        var month = localStorage["month"] ;
+        alert(month)
+    }
+    /*
         var myTableDiv = document.getElementById("metric_results")
         var table = document.createElement('TABLE')
         var tableBody = document.createElement('TBODY')
@@ -95,8 +52,8 @@
         heading[5] = "Fri"
         heading[6] = "Sat"
 
-        var f = 3 //first day, VARIABLE TO MONTH
-        var l = 31 + f //last day, VARIABLE TO MONTH
+        var f = 6 //first day, VARIABLE TO MONTH
+        var l = 30 //last day, VARIABLE TO MONTH
         var x = 1
 
         var cal = new Array()
@@ -116,11 +73,11 @@
         for (var i = 0; i < 6; i++) {
             for (var j = startOfWeek; j < 7; j++) {
                 cal[i][j] = x
-                x++
-                if (7 * i + j > l) {
+                if (7 * i + j > l + f - 2) {
                     i = 6
                     j = 7
                 }
+                x++
                 startOfWeek = 0
             }
         }
@@ -138,6 +95,13 @@
         //TABLE ROWS
         for (i = 0; i < cal.length; i++) {
             var tr = document.createElement('TR');
+            if (f + l >= 35 || i < 5)
+                tr.setAttribute("class", "days")
+            tr.setAttribute("id", "week" + i)
+            tr.setAttribute("onclick", "openWeek(" + i + ")")
+            //"row1"  -> "row" + i
+            //var oldThingThatYouWant = document.getElementByID("week0")
+
             for (j = 0; j < cal[i].length; j++) {
                 var td = document.createElement('TD')
                 td.appendChild(document.createTextNode(cal[i][j]));
@@ -147,107 +111,8 @@
         }
         myTableDiv.appendChild(table)
     }
+*/
 
 </script>
 
-<ul>
-    <li class="dropdown">
-        <a href="monthlyView.html.html" class="dropbtn">Month View</a>
-        <div class="dropdown-content">
-            <a href="index.html">Home</a>
-            <a href="dayView.html.html">Day View</a>
-            <a href="#">Week View</a>
-            <a href="yearView.html">Year View</a>
-        </div>
-    </li>
-</ul>
 
-<!--Temp date picker to test month variability-
-<input type="month" id="myMonth" value="2016-09">
-<button onclick="myFunction()">Test</button>
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("myMonth").value;
-        document.getElementById("update").innerHTML = x;
-    }
-</script>
-
-
-
-<!--Calendar format setup
-<table CELLSPACING=3 CELLPADDING=3>
-    <th colspan="7" bgcolor="#a9a9a9">
-            <b>
-                <p id="update"></p>
-            </b>
-    </th>
-    <tr bgcolor="gray">
-        <td>Sun</td>
-        <td>Mon</td>
-        <td>Tue</td>
-        <td>Wed</td>
-        <td>Thu</td>
-        <td>Fri</td>
-        <td>Sat</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-    </tr>
-    <tr>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-    </tr>
-    <tr>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-        <td>29</td>
-        <td>30</td>
-        <td>29</td>
-    </tr>
-    <tr>
-        <td>31</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-    </tr>
-</table>
--->
-
-</body>
-</html>

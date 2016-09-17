@@ -13,7 +13,7 @@
 <br>
 <br>
 
-<textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'>
+<textarea id="user" value="what" rows="20" cols="50" placeholder='What do you need to do?'>
 </textarea>
 
 <br />
@@ -26,20 +26,20 @@
     //save entered gmail address
     document.getElementById("save").addEventListener("click", function ()
     {
-        var date = localStorage["date"];
+        var date = "yolo";
         var event = document.getElementById("user").value ;
 
         //localStorage["user"] = user ;
-        localStorage.setItem(date, event) ;
+        localStorage.setItem("event", date);
         alert("saved") ;
 
     } , false);
 
     document.getElementById("load").addEventListener("click", function ()
     {
-        var event = localStorage["event"] ;
-        document.getElementById("user").value = user ;
-        alert(user)
+        var event = localStorage["month"];
+        //document.getElementById("user").value = user ;
+        alert(event);
         console.log(user);
     } , false);
 

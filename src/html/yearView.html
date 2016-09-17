@@ -12,6 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <!-- HTML SECTION -->
+<button id="load">Load</button>
 
 <div class="wrapper">
     <div class="header">
@@ -24,27 +25,104 @@
             <script>
                 document.getElementById("a").addEventListener("click", function ()
                 {
-                    var user = "August 1, 2016 01:00:00" ;
-                    localStorage.setItem("month", user) ;
+                    var month = "August" ;
+                    localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div class="col-lg-1"><a href="#"><p>September</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>October</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>November</p></a></div>
+            <div id = "b" class="col-lg-1"><a href="monthlyView.html"><p>September</p></a></div>
+            <script>
+                document.getElementById("b").addEventListener("click", function ()
+                {
+                    var month = "September" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "c" class="col-lg-1"><a href="monthlyView.html"><p>October</p></a></div>
+            <script>
+                document.getElementById("c").addEventListener("click", function ()
+                {
+                    var month = "October" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "d" class="col-lg-1"><a href="monthlyView.html"><p>November</p></a></div>
+            <script>
+                document.getElementById("d").addEventListener("click", function ()
+                {
+                    var month = "November" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
         </div><!-- end row -->
 
         <div class="row months">
-            <div class="col-lg-1"><a href="#"><p>December</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>January</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>February</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>March</p></a></div>
+            <div id = "e" class="col-lg-1"><a href="monthlyView.html"><p>December</p></a></div>
+            <script>
+                document.getElementById("e").addEventListener("click", function ()
+                {
+                    var month = "December" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "f" class="col-lg-1"><a href="monthlyView.html"><p>January</p></a></div>
+            <script>
+                document.getElementById("f").addEventListener("click", function ()
+                {
+                    var month = "January" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "g" class="col-lg-1"><a href="monthlyView.html"><p>February</p></a></div>
+            <script>
+                document.getElementById("g").addEventListener("click", function ()
+                {
+                    var month = "February" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "h" class="col-lg-1"><a href="monthlyView.html"><p>March</p></a></div>
+            <script>
+                document.getElementById("h").addEventListener("click", function ()
+                {
+                    var month = "March" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
         </div><!-- end row -->
 
         <div class="row months">
-            <div class="col-lg-1"><a href="#"><p>April</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>May</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>June</p></a></div>
-            <div class="col-lg-1"><a href="#"><p>July</p></a></div>
+            <div id = "i" class="col-lg-1"><a href="monthlyView.html"><p>April</p></a></div>
+            <script>
+                document.getElementById("i").addEventListener("click", function ()
+                {
+                    var month = "April" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "j" class="col-lg-1"><a href="monthlyView.html"><p>May</p></a></div>
+            <script>
+                document.getElementById("j").addEventListener("click", function ()
+                {
+                    var month = "May" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "k" class="col-lg-1"><a href="monthlyView.html"><p>June</p></a></div>
+            <script>
+                document.getElementById("k").addEventListener("click", function ()
+                {
+                    var month = "June" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
+            <div id = "l" class="col-lg-1"><a href="monthlyView.html"><p>July</p></a></div>
+            <script>
+                document.getElementById("l").addEventListener("click", function ()
+                {
+                    var month = "July" ;
+                    localStorage.setItem("month", month);
+                } , false);
+            </script>
         </div><!-- end row -->
 
         <div class="line"></div>
