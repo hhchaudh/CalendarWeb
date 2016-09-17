@@ -123,50 +123,78 @@
         }
     }
 
+    function setCurrentMonth(month)
+    {
+        month = month - 1
+        if(month < 1)
+            month = 12
+        if(month > 12)
+            month = 1
+        localStorage.setItem("month", month);
+        setMonth()
+    }
+
+    //from:
+    //stackoverflow.com/questions/4777077/removing-elements-by-class-name
+    function removeElementsByClass(classname)
+    {
+        var elements = document.getElementsByClassName(className)
+        var len = elements.length
+        for(var i = len - 1; i > 0; i--){
+            elements[i].parentNode.removeChild(elements[i])
+        }
+//        while(elements.length > 0) {
+//            elements[0].parentNode.removeChild(elements[0])
+//        }
+
+    }
+
+    function intToMonth(j)
+    {
+        var x = ""
+        if (j == 1 || j == 13) {
+            x = "January"
+        }
+        else if(j == 2) {
+            x = "February"
+        }
+        else if(j == 3) {
+            x = "March"
+        }
+        else if(j == 4) {
+            x = "April"
+        }
+        else if(j == 5) {
+            x = "May"
+        }
+        else if(j == 6) {
+            x = "June"
+        }
+        else if(j == 7) {
+            x = "July"
+        }
+        else if(j == 8) {
+            x = "August"
+        }
+        else if(j == 9) {
+            x = "September"
+        }
+        else if(j == 10) {
+            x = "October"
+        }
+        else if(j == 11) {
+            x = "November"
+        }
+        else if(j == 12 || j == 0) {
+            x = "December"
+        }
+        return x
+    }
+
     function addTable(f, l) {
         var month = localStorage["month"]
         var monthName = intToMonth(month)
-        function intToMonth(month)
-        {
-            var x = ""
-            if (month == 1 || month == 13) {
-                x = "January"
-            }
-            else if(month == 2) {
-                x = "February"
-            }
-            else if(month == 3) {
-                x = "March"
-            }
-            else if(month == 4) {
-                x = "April"
-            }
-            else if(month == 5) {
-                x = "May"
-            }
-            else if(month == 6) {
-                x = "June"
-            }
-            else if(month == 7) {
-                x = "July"
-            }
-            else if(month == 8) {
-            x = "August"
-        }
-        else if(month == 9) {
-            x = "September"
-        }
-        else if(month == 10) {
-            x = "October"
-        }
-        else if(month == 11) {
-            x = "November"
-        }
-        else if(month == 12 || month == 0) {
-            x = "December"
-        }
-            return x
-        }
+
         var name = document.createElement("H")
         var text = document.createTextNode(monthName)
         name.appendChild(text)
@@ -175,6 +203,11 @@
 
         var myTableDiv = document.getElementById("metric_results")
         var table = document.createElement('TABLE')
+//        alert(document.getElementsByClassName("monthTable").length)
+        if(document.getElementsByClassName("monthTable").length > 0) {
+            removeElementsByClass("monthTable")
+        }
+        table.setAttribute("class", "monthTable")
         var tableBody = document.createElement('TBODY')
 
         table.border = '0'
@@ -247,9 +280,16 @@
         }
         myTableDiv.appendChild(name)
         myTableDiv.appendChild(table)
+
+        var previous = document.createElement('BUTTON')
+        //var next = document.createElement('BUTTON')
+//        previous.setAttribute('onclick', 'setMonth()')
+        previous.setAttribute('onclick', "setCurrentMonth(" + month + ");window.location.href='monthlyView.html'")
+        //previous.setAttribute('onclick', 'history.go(0)')
+        var text = document.createTextNode("Previous Month")
+        previous.appendChild(text)
+        myTableDiv.appendChild(previous)
     }
-
-
 
 
 </script>
@@ -280,7 +320,6 @@
 
 >>>>>>> origin/master-->
 
-<button></button>
 
 </body>
 </html>
