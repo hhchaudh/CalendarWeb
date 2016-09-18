@@ -62,7 +62,7 @@
         myString = "Old Month: " + myString + ", New Month: " + newMonth
         alert(myString)
 
-        localStorage.setItem("month", i);
+        localStorage.setItem("month", newMonth);
         window.location.href = "monthlyView.html";
     }
 
@@ -287,9 +287,6 @@
         myTableDiv.appendChild(previous)
         myTableDiv.appendChild(next)
     }
-
-
-
 
 </script>
 
