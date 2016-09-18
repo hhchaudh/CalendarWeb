@@ -11,6 +11,10 @@
             word-wrap:break-word;
             padding: 8px;
         }
+
+        .days:hover {
+            background-color: #696969
+        }
     </style>
 </head>
 
@@ -23,6 +27,16 @@
 
 <br>
 <br>
+
+<script type="text/javascript">
+
+    function deleteEntry() {
+        //alert(id)
+        //localStorage.removeItem(id);
+        alert("Event deleted!");
+    }
+
+</script>
 
 <script type="text/javascript">
 
@@ -44,34 +58,54 @@
         dateDisplay.appendChild(name)
         //var time = document.getElementById("myTime").value;
 
-        for(var i = 1; i < 25; i++)
+        var recordNum = 0;
+        for(var i = 24; i > 0; i--)
         {
-            for(var j = 0; j < 60; j++)
+            for(var j = 59; j >= 0; j--)
             {
-                var eventVar = date + "/" + pad2(i) + ":" + pad2(j)
+                var eventVar = date + "/" + pad2(i) + ":" + pad2(j);
                 if(localStorage[eventVar] != undefined)
                 {
+                    recordNum++;
+                    sessionStorage.setItem(recordNum, eventVar)
                     var event = localStorage[eventVar];
                     var table = document.getElementById("myTable");
                     var row = table.insertRow(0);
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    var cell3 = row.insertCell(2);
+                    var cell0 = row.insertCell(0);
+                    var cell1 = row.insertCell(1);
+                    var cell2 = row.insertCell(2);
+                    //var cell3 = row.insertCell(3);
                     var time = "AM"
                     var hour = i;
+                    var min = j;
                     if(hour > 12)
                     {
                         hour = hour - 12;
                         time = "PM"
                     }
 
+                    cell0.innerHTML = recordNum;
                     cell1.innerHTML = "At " + hour + ":" + pad2(j) + " " + time;
                     cell2.innerHTML = event;
-                    cell3.innerHTML = "Delete?"
+                   // cell3.innerHTML = "Delete"
+                   // cell3.type = "button"
+                    //cell3.id = "delete"
+                    //var td = document.createElement('TD')
+                    //cell3.setAttribute("id", "delete")
+                    //cell3.setAttribute("class", "days")
+                    //var a = 4
+
+                    //cell3.setAttribute("onclick", "deleteEntry()");
                 }
             }
 
         }
+
+        document.getElementById("delete").addEventListener("click", function ()
+        {
+
+        }, false);
+
     }
 
 </script>
@@ -89,6 +123,9 @@
 
 <br>
 <button id="save">Save</button>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<button id="delete">Delete</button>
+
 <br>
 <br>
 <br>
@@ -144,7 +181,26 @@
         {
             var eventVar = date + "/" + time;
             localStorage.setItem(eventVar, event)
+            alert("Saved!")
+            window.location.reload();
         }
+    } , false);
+
+    document.getElementById("delete").addEventListener("click", function ()
+    {
+        var recNum = prompt("Please enter the record number you would like to delete");
+        if(recNum != null)
+        {
+            var eventVar = sessionStorage.getItem(recNum);
+            localStorage.removeItem(eventVar);
+            alert("Event deleted!")
+            window.location.reload();
+        }
+        else
+        {
+            alert("No record number was input, so nothing was deleted.")
+        }
+
     } , false);
 
 
