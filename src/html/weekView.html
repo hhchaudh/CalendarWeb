@@ -1,101 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html class="no-js" lang="">
+
+<!--table css from http://www.w3schools.com/css/css_table.asp-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>weekView</title>
     <style>
-        tr:hover {
-            background-color: dimgrey;
-            cursor: pointer;
+        table {
+            border-collapse: collapse;
+            width: 100%;
         }
-        table tr td {
-            padding-left: 0;
-            padding-right: 0;
+
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .days:hover {
+            background-color: #696969
         }
 
     </style>
 </head>
-<body>
-<table>
-    <tr>
-        <td>
-            <a href="dayView.html">Sunday</a>
-        </td>
-        <td>
-                event
-        </td>
-    </tr>
-    <tr>
-        <td>
-        <a>
-            Monday
-        </a>
-    </td>
-        <td>
-            <a>
-                event<!--chaanged dynamically with amount of events added-->
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a>
-                Tuesday
-            </a>
-        </td>
-        <td>
-            <a>
-                event
-            </a>
-        </td>
-    </tr>    <tr>
-    <td>
-        <a>
-           Wednesday
-        </a>
-    </td>
-    <td>
-        <a>
-            event
-        </a>
-    </td>
-</tr>
-    <tr>
-        <td>
-            <a>
-                Thursday
-            </a>
-        </td>
-        <td>
-            <a>
-                event
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a>
-                Friday
-            </a>
-        </td>
-        <td>
-            <a>
-                event
-            </a>
-        </td>
-    </tr>    <tr>
-    <td>
-        <a>
-            Saturday
-        </a>
-    </td>
-    <td>
-        <a>
-            event
-        </a>
-    </td>
-</tr>
-</table>
-<p>click a day to edit</p>
+<body onload="setWeek()">
+
+
+<div id="Month Name" >
+</div>
+
+<script type="text/javascript">
+
+    function openDay(id) {
+        var dayNum = id;
+        localStorage.setItem("dayNum", dayNum);
+        window.location.href = "dayView.html";
+    }
+
+</script>
+
+<script>
+
+    function setWeek(){
+        var month = localStorage["month"] ;
+        if(month==8)
+        {
+            addTab(1, 31)
+        }
+        else if(month==9)
+        {
+            addTab(4, 30)
+        }
+        else if(month==10)
+        {
+            addTab(6, 31)
+        }
+        else if(month==11)
+        {
+            addTab(2, 30)
+        }
+        else if(month==12)
+        {
+            addTab(4, 31)
+        }
+        else if(month==1)
+        {
+            addTab(0, 31)
+        }
+        else if(month==2)
+        {
+            addTab(3, 28)
+        }
+        else if(month==3)
+        {
+            addTab(3, 31)
+        }
+        else if(month==4)
+        {
+            addTab(6, 30)
+        }
+        else if(month==5)
+        {
+            addTab(1, 31)
+        }
+        else if(month==6)
+        {
+            addTab(4, 30)
+        }
+        else if(month==7)
+        {
+            addTab(6, 31)
+        }
+    }
+
+    function intToMonth(j)
+    {
+        var x = ""
+        if (j == 1 || j == 13) {
+            x = "January"
+        }
+        else if(j == 2) {
+            x = "February"
+        }
+        else if(j == 3) {
+            x = "March"
+        }
+        else if(j == 4) {
+            x = "April"
+        }
+        else if(j == 5) {
+            x = "May"
+        }
+        else if(j == 6) {
+            x = "June"
+        }
+        else if(j == 7) {
+            x = "July"
+        }
+        else if(j == 8) {
+            x = "August"
+        }
+        else if(j == 9) {
+            x = "September"
+        }
+        else if(j == 10) {
+            x = "October"
+        }
+        else if(j == 11) {
+            x = "November"
+        }
+        else if(j == 12 || j == 0) {
+            x = "December"
+        }
+        return x
+    }
+
+    function addTab(f, l) {
+        var month = localStorage["month"]
+        var monthName = intToMonth(month)
+        var weekNum = localStorage["weekNum"]
+        var name = document.createElement("H")
+        name.setAttribute("id", "monthName")
+        var text = document.createTextNode(monthName)
+        name.appendChild(text)
+
+
+
+        var myTableDiv = document.getElementById("Month Name")
+        var table = document.createElement('TABLE')
+        var tableBody = document.createElement('TBODY')
+
+        table.border = '0'
+        table.appendChild(tableBody);
+
+        var heading = new Array();
+        heading[0] = "Sun"
+        heading[1] = "Mon"
+        heading[2] = "Tues"
+        heading[3] = "Wed"
+        heading[4] = "Thurs"
+        heading[5] = "Fri"
+        heading[6] = "Sat"
+
+
+        var x = 1
+
+        var cal = new Array()
+
+        for (var i = 0; i < 6; i++) {
+            cal[i] = new Array(7)
+        }
+
+
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 7; j++) {
+                cal[i][j] = ""
+            }
+        }
+
+        startOfWeek = f
+        for (var i = 0; i < 6; i++) {
+            for (var j = startOfWeek; j < 7; j++) {
+                cal[i][j] = x
+                if (7 * i + j > l + f - 2) {
+                    i = 6
+                    j = 7
+                }
+                x++
+                startOfWeek = 0
+            }
+        }
+
+        //TABLE COLUMNS
+        var tr = document.createElement('TR');
+        tableBody.appendChild(tr);
+        for (i = 0; i < heading.length; i++) {
+            var th = document.createElement('TH')
+            th.width = '75';
+            th.appendChild(document.createTextNode(heading[i]));
+            tr.appendChild(th);
+        }
+
+        //TABLE ROWS
+            var tr = document.createElement('TR');
+            //if (f + l >= 35 || weekNum < 5)
+            for (j = 0; j < cal[weekNum].length; j++) {
+                var td = document.createElement('TD')
+                td.setAttribute("class", "days")
+                td.setAttribute("onclick", "openDay(" + cal[weekNum][j] + ")")
+
+                td.appendChild(document.createTextNode(cal[weekNum][j]));
+                tr.appendChild(td)
+            }
+            tableBody.appendChild(tr);
+        myTableDiv.appendChild(name)
+        myTableDiv.appendChild(table)
+    }
+
+</script>
+
+
 </body>
 </html>
+
