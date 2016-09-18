@@ -25,6 +25,11 @@
             background-color: #696969
         }
 
+        .event {
+            background-color: #7190E9;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body onload="setMonth()">
@@ -42,7 +47,10 @@
 //        var x = document.getElementByID("testTD1_1")
 //        x.innerText = "woo"
 //    }
-
+    function pad2(number)
+    {
+        return (number < 10 ? '0' : '') + number
+    }
 
     function openWeek(id) {
         var weekNum = id;
@@ -52,15 +60,15 @@
 
     function changeMonth(i) {
         var newMonth = i;
-        var myString = i;
+        //var myString = i;
         if(newMonth < 1) {
             newMonth = 12;
         }
         if(newMonth > 12) {
             newMonth = 1;
         }
-        myString = "Old Month: " + myString + ", New Month: " + newMonth
-        alert(myString)
+        //myString = "Old Month: " + myString + ", New Month: " + newMonth
+        //alert(myString)
 
         localStorage.setItem("month", newMonth);
         window.location.href = "monthlyView.html";
@@ -146,39 +154,17 @@
     function intToMonth(j)
     {
         var x = ""
-        if (j == 1 || j == 13) {
-            x = "January"
-        }
-        else if(j == 2) {
-            x = "February"
-        }
-        else if(j == 3) {
-            x = "March"
-        }
-        else if(j == 4) {
-            x = "April"
-        }
-        else if(j == 5) {
-            x = "May"
-        }
-        else if(j == 6) {
-            x = "June"
-        }
-        else if(j == 7) {
-            x = "July"
-        }
-        else if(j == 8) {
-            x = "August"
-        }
-        else if(j == 9) {
-            x = "September"
-        }
-        else if(j == 10) {
-            x = "October"
-        }
-        else if(j == 11) {
-            x = "November"
-        }
+        if (j == 1 || j == 13) {x = "January"}
+        else if(j == 2) {x = "February"}
+        else if(j == 3) {x = "March"}
+        else if(j == 4) {x = "April"}
+        else if(j == 5) {x = "May"}
+        else if(j == 6) {x = "June"}
+        else if(j == 7) {x = "July"}
+        else if(j == 8) {x = "August"}
+        else if(j == 9) {x = "September"}
+        else if(j == 10) {x = "October"}
+        else if(j == 11) {x = "November"}
         else if(j == 12 || j == 0) {
             x = "December"
         }
@@ -262,8 +248,26 @@
             tr.setAttribute("id", "week" + i)
             tr.setAttribute("onclick", "openWeek(" + i + ")")
 
-            for (j = 0; j < cal[i].length; j++) {
+            for (j = 0; j < cal[i].length; j++)
+            {
                 var td = document.createElement('TD')
+                if(cal[i][j] != "")
+                {
+                    //td.setAttribute("class", "days")
+                    var dayNum = cal[i][j]
+                    var date = localStorage["month"] + "/" + dayNum
+                    for (var a = 1; a < 25; a++)
+                    {
+                        for (var b = 0; b < 60; b++)
+                        {
+                            var eventVar = date + "/" + pad2(a) + ":" + pad2(b);
+                            if (localStorage[eventVar] != undefined)
+                            {
+                                td.setAttribute("class", "event")
+                            }
+                        }
+                    }
+                }
 //                td.setAttribute("ID", "testTD" + j "_" + i)
                 td.appendChild(document.createTextNode(cal[i][j]));
                 tr.appendChild(td)

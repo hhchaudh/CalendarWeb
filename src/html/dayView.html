@@ -189,16 +189,26 @@
     document.getElementById("delete").addEventListener("click", function ()
     {
         var recNum = prompt("Please enter the record number you would like to delete");
-        if(recNum != null)
+        if(recNum != null && parseInt(recNum) == recNum)
         {
             var eventVar = sessionStorage.getItem(recNum);
-            localStorage.removeItem(eventVar);
-            alert("Event deleted!")
-            window.location.reload();
+            var x = localStorage[eventVar];
+            if(x != undefined)
+            {
+                localStorage.removeItem(eventVar);
+                alert("Event deleted!")
+                window.location.reload();
+            }
+            else
+            {
+                alert("No event found at that record number!")
+            }
+
+
         }
         else
         {
-            alert("No record number was input, so nothing was deleted.")
+            alert("Invalid record number was input, so nothing was deleted.")
         }
 
     } , false);
