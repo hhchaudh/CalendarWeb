@@ -1,10 +1,81 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
+    <!--http://ianlunn.github.io/Hover/-->
+    <link href="css/hover.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+    <style>
+        p{
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+        }
+        /* Underline From Center */
+        .hvr-underline-from-center {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow: hidden;
+        }
+        .hvr-underline-from-center:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            background: #2098d1;
+            height: 4px;
+            -webkit-transition-property: left, right;
+            transition-property: left, right;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+        .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+            left: 0;
+            right: 0;
+        }
+
+        .button {
+            font-size: 20px;
+            float: left;
+            width: 150px;
+            display: inline-block;
+            padding: 16px 16px;
+            text-align: center;
+            background-color: Transparent;
+            text-decoration: none;
+            color: lightgray;
+            border-radius: 4px;
+        }
+        body {
+            background-image: url("dubai2.jpg");
+            background-repeat: no-repeat;
+        }
+        .header{
+            text-align: center;
+            color: skyblue;
+            font-family: 'Baloo', cursive;
+        }
+        .calendar-body{
+            font-family: 'Baloo', cursive;
+            color: skyblue;
+            position: relative;
+            left: 100px;
+            padding: 20px;
+        }
+    </style>
 
 </head>
 <body>
-
 <title>Calendar Component</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -15,12 +86,14 @@
 
 <div class="wrapper">
     <div class="header">
-        <p>2016</p>
+        <h1>Welcome To Your Calendar</h1>
+
     </div><!-- end header -->
     <div class="calendar-body">
 
         <div class="row months">
-            <div id = "a" class="col-lg-1">  <a href="monthlyView.html">  <p>August</p></a></div>
+            <h3>2016</h3>
+            <div id = "a" class="col-lg-1">  <a href="monthlyView.html" class="button hvr-underline-from-center"> <p>August</p></a></div>
             <script>
                 document.getElementById("a").addEventListener("click", function ()
                 {
@@ -28,7 +101,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "b" class="col-lg-1"><a href="monthlyView.html"><p>September</p></a></div>
+            <div id = "b" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>September</p></a></div>
             <script>
                 document.getElementById("b").addEventListener("click", function ()
                 {
@@ -36,7 +109,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "c" class="col-lg-1"><a href="monthlyView.html"><p>October</p></a></div>
+            <div id = "c" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>October</p></a></div>
             <script>
                 document.getElementById("c").addEventListener("click", function ()
                 {
@@ -44,7 +117,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "d" class="col-lg-1"><a href="monthlyView.html"><p>November</p></a></div>
+            <div id = "d" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>November</p></a></div>
             <script>
                 document.getElementById("d").addEventListener("click", function ()
                 {
@@ -52,10 +125,8 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-        </div><!-- end row -->
 
-        <div class="row months">
-            <div id = "e" class="col-lg-1"><a href="monthlyView.html"><p>December</p></a></div>
+            <div id = "e" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>December</p></a></div>
             <script>
                 document.getElementById("e").addEventListener("click", function ()
                 {
@@ -63,7 +134,11 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "f" class="col-lg-1"><a href="monthlyView.html"><p>January</p></a></div>
+        </div><!-- end row -->
+
+        <div class="row months">
+            <h3>2017</h3>
+            <div id = "f" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>January</p></a></div>
             <script>
                 document.getElementById("f").addEventListener("click", function ()
                 {
@@ -71,7 +146,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "g" class="col-lg-1"><a href="monthlyView.html"><p>February</p></a></div>
+            <div id = "g" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>February</p></a></div>
             <script>
                 document.getElementById("g").addEventListener("click", function ()
                 {
@@ -79,7 +154,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "h" class="col-lg-1"><a href="monthlyView.html"><p>March</p></a></div>
+            <div id = "h" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>March</p></a></div>
             <script>
                 document.getElementById("h").addEventListener("click", function ()
                 {
@@ -87,10 +162,8 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-        </div><!-- end row -->
 
-        <div class="row months">
-            <div id = "i" class="col-lg-1"><a href="monthlyView.html"><p>April</p></a></div>
+            <div id = "i" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>April</p></a></div>
             <script>
                 document.getElementById("i").addEventListener("click", function ()
                 {
@@ -98,7 +171,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "j" class="col-lg-1"><a href="monthlyView.html"><p>May</p></a></div>
+            <div id = "j" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>May</p></a></div>
             <script>
                 document.getElementById("j").addEventListener("click", function ()
                 {
@@ -106,7 +179,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "k" class="col-lg-1"><a href="monthlyView.html"><p>June</p></a></div>
+            <div id = "k" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>June</p></a></div>
             <script>
                 document.getElementById("k").addEventListener("click", function ()
                 {
@@ -114,7 +187,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-            <div id = "l" class="col-lg-1"><a href="monthlyView.html"><p>July</p></a></div>
+            <div id = "l" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>July</p></a></div>
             <script>
                 document.getElementById("l").addEventListener("click", function ()
                 {
