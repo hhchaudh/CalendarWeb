@@ -1,5 +1,3 @@
-
-
 <style type="text/css">
     table {
         border-collapse: collapse;
@@ -69,7 +67,9 @@
 
 <script>
     function openWeek(id) {
-        alert(id);
+        var weekNum = id;
+        localStorage.setItem("weekNum", weekNum);
+        window.location.href = "weekView.html";
     }
     function setMonth(){
         var month = localStorage["month"] ;
@@ -194,8 +194,6 @@
                 tr.setAttribute("class", "days")
             tr.setAttribute("id", "week" + i)
             tr.setAttribute("onclick", "openWeek(" + i + ")")
-            //"row1"  -> "row" + i
-            //var oldThingThatYouWant = document.getElementByID("week0")
 
             for (j = 0; j < cal[i].length; j++) {
                 var td = document.createElement('TD')
@@ -212,32 +210,7 @@
 
 
 </script>
-<!--
-<ul>
-    <li class="dropdown">
-        <a href="monthlyView.html.html" class="dropbtn">Month View</a>
-        <div class="dropdown-content">
-            <a href="index.html">Home</a>
-            <a href="dayView.html.html">Day View</a>
-            <a href="#">Week View</a>
-            <a href="yearView.html">Year View</a>
-        </div>
-    </li>
-</ul>
--->
-<!--Temp date picker to test month variability-
-<input type="month" id="myMonth" value="2016-09">
-<button onclick="myFunction()">Test</button>
 
-<script>
-    function myFunction() {
-        var x = document.getElementById("myMonth").value;
-        document.getElementById("update").innerHTML = x;
-    }
-</script>
-
-
->>>>>>> origin/master-->
 
 </body>
 </html>
