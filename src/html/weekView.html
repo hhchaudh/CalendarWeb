@@ -245,27 +245,10 @@
                 td.appendChild(document.createTextNode(cal[weekNum][a]));
                 tr.appendChild(td)
             }
-            /*for (a = 0; a < cal[weekNum].length; a++)
-            {
-                var dayNum = cal[weekNum][a]
-                var date = localStorage["month"] + "/" + dayNum
-                for (var i = 1; i < 25; i++)
-                {
-                    for (var j = 0; j < 60; j++)
-                    {
-                        var eventVar = date + "/" + pad2(i) + ":" + pad2(j);
-                        if (localStorage[eventVar] != undefined) {
-                            td.setAttribute("class", "event")
-                        }
-                    }
-                }
-            }*/
-
-
 
             tableBody.appendChild(tr);
-        myTableDiv.appendChild(name)
-        myTableDiv.appendChild(table)
+        myTableDiv.appendChild(name);
+        myTableDiv.appendChild(table);
     }
 
 </script>

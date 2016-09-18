@@ -3,7 +3,7 @@
 <html class="no-js" lang="">
 
 <!--table css from http://www.w3schools.com/css/css_table.asp-->
-
+/** setting up table for the month view*/
 <head>
     <style>
         table {
@@ -14,105 +14,22 @@
         td {
             padding: 8px;
             text-align: center;
-            color:white;
         }
 
         th {
             padding: 8px;
             text-align: center;
-            color:white;
         }
-        body {
-            background-image: url("dubai2.jpg");
-            background-repeat: no-repeat;
-
-        }
-
+        /** You can hover over the days and the week*/
         .days:hover {
             background-color: #696969
-        }
-
-        .event {
-            background-color: #4163A9;
-            font-weight: bold;
-        }
-
-    </style>
-
-
-    <style>
-        .button {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 24px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            outline: none;
-            color: #fff;
-            background-color: #4163A9;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 9px #999;
-        }
-
-        .button:hover {background-color: #60646C}
-
-        .button:active {
-            background-color: #60646C;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-    </style>
-
-<!--http://www.hongkiat.com/blog/css-text-effects-->
-    <style>
-
-        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
-        body{
-            font-family: "Open Sans",  Impact;
-            text-align: center;
-        }
-        .area{
-            text-align:center;
-            font-size:6.5em;
-            color:#fff;
-            letter-spacing: -7px;
-            font-weight:700;
-            text-transform:uppercase;
-            animation:blur .75s ease-out infinite;
-            text-shadow:0px 0px 5px #fff,
-            0px 0px 7px #fff;
-        }
-
-        @keyframes blur{
-            from{
-                text-shadow:0px 0px 10px #fff,
-                0px 0px 10px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 50px #fff,
-                0px 0px 50px #fff,
-                0px 0px 50px #7B96B8,
-                0px 0px 150px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px -10px 100px #7B96B8,
-                0px -10px 100px #7B96B8;}
         }
 
     </style>
 </head>
 <body onload="setMonth()">
 
-
+/** stackoverflow was used for the dynamic month view*/
 <div id="metric_results" value="Click here" onload="addTable(6, 30)">
     <!--<input type="button" id="create" value="Click here" onload="addTable(6, 30)">-->
     <!--http://stackoverflow.com/questions/20407781/dynamically-generated-table-using-an-array-to-fill-in-td-values-->
@@ -125,33 +42,32 @@
 //        var x = document.getElementByID("testTD1_1")
 //        x.innerText = "woo"
 //    }
-    function pad2(number)
-    {
-        return (number < 10 ? '0' : '') + number
-    }
 
+    /** function was created for setting up the weeks*/
     function openWeek(id) {
         var weekNum = id;
         localStorage.setItem("weekNum", weekNum);
         window.location.href = "weekView.html";
     }
-
+    /** function was created for the 12 months*/
     function changeMonth(i) {
         var newMonth = i;
-        //var myString = i;
+        var myString = i;
         if(newMonth < 1) {
             newMonth = 12;
         }
         if(newMonth > 12) {
             newMonth = 1;
         }
-        //myString = "Old Month: " + myString + ", New Month: " + newMonth
-        //alert(myString)
+        myString = "Old Month: " + myString + ", New Month: " + newMonth
+        alert(myString)
+
+        /**storage for the new month and keeping track of old month*/
 
         localStorage.setItem("month", newMonth);
         window.location.href = "monthlyView.html";
     }
-
+    /** if else and variables used for storage of month*/
     function setMonth(){
         var month = localStorage["month"] ;
         if(month==8)
@@ -203,7 +119,7 @@
             addTable(6, 31)
         }
     }
-
+    /** function for keeping track of the month of September*/
 //    function setCurrentMonth(month)
 //    {
 //        month = month - 1
@@ -228,27 +144,49 @@
 //            elements[0].parentNode.removeChild(elements[0])
 //        }
     }
-
+    /** Function to assigning what number the month goes to*//
     function intToMonth(j)
     {
         var x = ""
-        if (j == 1 || j == 13) {x = "January"}
-        else if(j == 2) {x = "February"}
-        else if(j == 3) {x = "March"}
-        else if(j == 4) {x = "April"}
-        else if(j == 5) {x = "May"}
-        else if(j == 6) {x = "June"}
-        else if(j == 7) {x = "July"}
-        else if(j == 8) {x = "August"}
-        else if(j == 9) {x = "September"}
-        else if(j == 10) {x = "October"}
-        else if(j == 11) {x = "November"}
+        if (j == 1 || j == 13) {
+            x = "January"
+        }
+        else if(j == 2) {
+            x = "February"
+        }
+        else if(j == 3) {
+            x = "March"
+        }
+        else if(j == 4) {
+            x = "April"
+        }
+        else if(j == 5) {
+            x = "May"
+        }
+        else if(j == 6) {
+            x = "June"
+        }
+        else if(j == 7) {
+            x = "July"
+        }
+        else if(j == 8) {
+            x = "August"
+        }
+        else if(j == 9) {
+            x = "September"
+        }
+        else if(j == 10) {
+            x = "October"
+        }
+        else if(j == 11) {
+            x = "November"
+        }
         else if(j == 12 || j == 0) {
             x = "December"
         }
         return x
     }
-
+    /** Local storage of the month*/
     function addTable(f, l) {
         var month = localStorage["month"]
         var monthName = intToMonth(month)
@@ -256,8 +194,7 @@
 
         var name = document.createElement("H")
         var text = document.createTextNode(monthName)
-        name.appendChild(text);
-        name.setAttribute("class","area");
+        name.appendChild(text)
 
         var myTableDiv = document.getElementById("metric_results")
         var table = document.createElement('TABLE')
@@ -270,7 +207,7 @@
 
         table.border = '0'
         table.appendChild(tableBody);
-
+        /** assigning the day of the week to what number it's suppose to go to*/
         var heading = new Array();
         heading[0] = "Sun"
         heading[1] = "Mon"
@@ -284,18 +221,18 @@
         var x = 1
 
         var cal = new Array()
-
+        /** if the day is less than 6 we will increase the day and go to 7 which is Sunday*/
         for (var i = 0; i < 6; i++) {
             cal[i] = new Array(7)
         }
 
-
+        /** trying to go to Saturday if less than 7*/
         for (var i = 0; i < 6; i++) {
             for (var j = 0; j < 7; j++) {
                 cal[i][j] = ""
             }
         }
-
+        /** function for the start of the week and how to restart each time*/
         startOfWeek = f
         for (var i = 0; i < 6; i++) {
             for (var j = startOfWeek; j < 7; j++) {
@@ -310,6 +247,7 @@
         }
 
         //TABLE COLUMNS
+        /**Columns are being produced*/
         var tr = document.createElement('TR');
         tableBody.appendChild(tr);
         for (i = 0; i < heading.length; i++) {
@@ -320,6 +258,7 @@
         }
 
         //TABLE ROWS
+        /**Rows are being produced*/
         for (i = 0; i < cal.length; i++) {
             var tr = document.createElement('TR');
             if (f + l >= 35 || i < 5)
@@ -327,78 +266,34 @@
             tr.setAttribute("id", "week" + i)
             tr.setAttribute("onclick", "openWeek(" + i + ")")
 
-            for (j = 0; j < cal[i].length; j++)
-            {
+            for (j = 0; j < cal[i].length; j++) {
                 var td = document.createElement('TD')
-                if(cal[i][j] != "")
-                {
-                    //td.setAttribute("class", "days")
-                    var dayNum = cal[i][j]
-                    var date = localStorage["month"] + "/" + dayNum
-                    for (var a = 1; a < 25; a++)
-                    {
-                        for (var b = 0; b < 60; b++)
-                        {
-                            var eventVar = date + "/" + pad2(a) + ":" + pad2(b);
-                            if (localStorage[eventVar] != undefined)
-                            {
-                                td.setAttribute("class", "event")
-                            }
-                        }
-                    }
-                }
 //                td.setAttribute("ID", "testTD" + j "_" + i)
                 td.appendChild(document.createTextNode(cal[i][j]));
                 tr.appendChild(td)
             }
             tableBody.appendChild(tr);
         }
-
-        myTableDiv.appendChild(name);
-        var s = document.createElement('br');
-        var t = document.createElement('br');
-        var u = document.createElement('br');
-        var v = document.createElement('br');
-
-        myTableDiv.appendChild(s);
-        myTableDiv.appendChild(t);
-        myTableDiv.appendChild(u);
-        myTableDiv.appendChild(v);
-
-        myTableDiv.appendChild(table);
-
-        var w = document.createElement('br');
-        var x = document.createElement('br');
-        var y = document.createElement('br');
-        var z = document.createElement('br');
-
-        var previous = document.createElement('BUTTON');
-        var foo = document.createTextNode('\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0');
-        var next = document.createElement('BUTTON');
-        previous.setAttribute("class","button");
+        myTableDiv.appendChild(name)
+        myTableDiv.appendChild(table)
+        /** working with the buttons*/
+        var previous = document.createElement('BUTTON')
+        var next = document.createElement('BUTTON')
         previous.setAttribute('onclick', "changeMonth(" + (month - 1) + ")")
-        next.setAttribute("class", "button");
         next.setAttribute('onclick', "changeMonth(" + (month - -1) + ")")
         //previous.setAttribute('onclick', "changeTest()")
             //"setCurrentMonth(" + month + ");window.location.href='monthlyView.html'")
         //previous.setAttribute('onclick', 'history.go(0)')
-        var text = document.createTextNode("Previous Month");
-        previous.appendChild(text);
-        text = document.createTextNode("Next Month");
-        next.appendChild(text);
-        myTableDiv.appendChild(w);
-        myTableDiv.appendChild(x);
-        myTableDiv.appendChild(y);
-        myTableDiv.appendChild(z);
-        myTableDiv.appendChild(previous);
-        myTableDiv.appendChild(foo);
-        myTableDiv.appendChild(next);
-
+        var text = document.createTextNode("Previous Month")
+        previous.appendChild(text)
+        text = document.createTextNode("Next Month")
+        next.appendChild(text)
+        myTableDiv.appendChild(previous)
+        myTableDiv.appendChild(next)
     }
 
 </script>
-<br>
-<br>
+
 
 </body>
 </html>
