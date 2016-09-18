@@ -1,13 +1,84 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
+    <style>
+        table {
+            table-layout: fixed;
+            width: 35%;
+        }
 
+        td {
+            word-wrap:break-word;
+            padding: 8px;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="tableCreate()">
 
-<input type="date">
-<input type="time"/>
+<div id="dateDisplay" >
+
+</div>
+
+
+<br>
+<br>
+
+<script type="text/javascript">
+
+    //modification of table insertRow() method from w3schools.com
+    function tableCreate()
+    {
+        var month = localStorage["month"];
+        var monthName = intToMonth(month);
+        var dayNum = localStorage["dayNum"];
+
+        var date = month + "/" + dayNum;
+        var dispDate = monthName + ", " + dayNum;
+        var name = document.createElement("H")
+        name.setAttribute("id", "dateDisplay")
+        var text = document.createTextNode(dispDate)
+        name.appendChild(text)
+
+        var dateDisplay = document.getElementById("dateDisplay")
+        dateDisplay.appendChild(name)
+        //var time = document.getElementById("myTime").value;
+
+        for(var i = 1; i < 25; i++)
+        {
+            for(var j = 0; j < 60; j++)
+            {
+                var eventVar = date + "/" + pad2(i) + ":" + pad2(j)
+                if(localStorage[eventVar] != undefined)
+                {
+                    var event = localStorage[eventVar];
+                    var table = document.getElementById("myTable");
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var time = "AM"
+                    var hour = i;
+                    if(hour > 12)
+                    {
+                        hour = hour - 12;
+                        time = "PM"
+                    }
+
+                    cell1.innerHTML = "At " + hour + ":" + pad2(j) + " " + time;
+                    cell2.innerHTML = event;
+                    cell3.innerHTML = "Delete?"
+                }
+            }
+
+        }
+    }
+
+</script>
+
+
+
+<input id = "myTime" type="time"/>
 <br>
 <br>
 <br>
@@ -16,28 +87,66 @@
 <textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'>
 </textarea>
 
-<br />
+<br>
 <button id="save">Save</button>
-<button id="load">Load</button>
+<br>
+<br>
+<br>
+<table id = "myTable">
+
+
+</table>
 <!--<button id="save">Clear</button>-->
 
 <script type="text/javascript">
 
-    //save entered gmail address
+    function pad2(number) {
+
+        return (number < 10 ? '0' : '') + number
+
+    }
+
+    function intToMonth(j)
+    {
+        var x = ""
+        if (j == 1 || j == 13) {x = "January"}
+        else if(j == 2) {x = "February"}
+        else if(j == 3) {x = "March"}
+        else if(j == 4) {x = "April"}
+        else if(j == 5) {x = "May"}
+        else if(j == 6) {x = "June"}
+        else if(j == 7) {x = "July"}
+        else if(j == 8) {x = "August"}
+        else if(j == 9) {x = "September"}
+        else if(j == 10) {x = "October"}
+        else if(j == 11) {x = "November"}
+        else if(j == 12 || j == 0) {x = "December"}
+        return x
+    }
+
     document.getElementById("save").addEventListener("click", function ()
     {
         var event = document.getElementById("user").value ;
-        localStorage.setItem("event", date);
-        alert("saved");
+        var month = localStorage["month"];
+        var dayNum = localStorage["dayNum"];
+        var date = month + "/" + dayNum;
 
+        var time = document.getElementById("myTime").value;
+        if(time == "" )
+        {
+            alert("Please enter a time for this event!")
+        }
+        else if(event == "")
+        {
+            alert("Please enter your event!")
+        }
+        else
+        {
+            var eventVar = date + "/" + time;
+            localStorage.setItem(eventVar, event)
+        }
     } , false);
 
-    document.getElementById("load").addEventListener("click", function ()
-    {
-        var event = localStorage["month"];
-        //document.getElementById("user").value = user ;
-        alert(event);
-    } , false);
 
 </script>
 
