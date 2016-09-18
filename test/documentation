@@ -1,0 +1,227 @@
+/**
+* dayView
+*/
+/**authors Team Page 404 Not Found*/
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+    /** layout for the table*/
+    <style>
+        table {
+            table-layout: fixed;
+            width: 35%;
+        }
+
+        td {
+            word-wrap:break-word;
+            padding: 8px;
+        }
+
+        .days:hover {
+            background-color: #696969
+        }
+    </style>
+</head>
+
+<body onload="tableCreate()">
+
+<div id="dateDisplay" >
+
+</div>
+
+
+<br>
+<br>
+/** used javascript, css and html5*/
+<script type="text/javascript">
+/** function entry is made here*/
+    function deleteEntry() {
+        //alert(id)
+        //localStorage.removeItem(id);
+        alert("Event deleted!");
+    }
+
+</script>
+/** used javascript and w3schools.com as a reference*/
+<script type="text/javascript">
+
+    //modification of table insertRow() method from w3schools.com
+    function tableCreate()
+    {
+        /** named the variables here*/
+        var month = localStorage["month"];
+        var monthName = intToMonth(month);
+        var dayNum = localStorage["dayNum"];
+
+        var date = month + "/" + dayNum;
+        var dispDate = monthName + ", " + dayNum;
+        var name = document.createElement("H")
+        name.setAttribute("id", "dateDisplay")
+        var text = document.createTextNode(dispDate)
+        name.appendChild(text)
+
+        var dateDisplay = document.getElementById("dateDisplay")
+        dateDisplay.appendChild(name)
+        //var time = document.getElementById("myTime").value;
+
+        /** variables to keep track of the days and to store them*/
+
+        var recordNum = 0;
+        for(var i = 24; i > 0; i--)
+        {
+            for(var j = 59; j >= 0; j--)
+            {
+                var eventVar = date + "/" + pad2(i) + ":" + pad2(j);
+                if(localStorage[eventVar] != undefined)
+                {
+                    recordNum++;
+                    sessionStorage.setItem(recordNum, eventVar)
+                    var event = localStorage[eventVar];
+                    var table = document.getElementById("myTable");
+                    var row = table.insertRow(0);
+                    var cell0 = row.insertCell(0);
+                    var cell1 = row.insertCell(1);
+                    var cell2 = row.insertCell(2);
+                    //var cell3 = row.insertCell(3);
+                    /** set time to AM or PM varaibles*/
+                    var time = "AM"
+                    var hour = i;
+                    var min = j;
+                    if(hour > 12)
+                    {
+                        hour = hour - 12;
+                        time = "PM"
+                    }
+                    /** delete or record and store buttons*/
+                    cell0.innerHTML = recordNum;
+                    cell1.innerHTML = "At " + hour + ":" + pad2(j) + " " + time;
+                    cell2.innerHTML = event;
+                   // cell3.innerHTML = "Delete"
+                   // cell3.type = "button"
+                    //cell3.id = "delete"
+                    //var td = document.createElement('TD')
+                    //cell3.setAttribute("id", "delete")
+                    //cell3.setAttribute("class", "days")
+                    //var a = 4
+
+                    //cell3.setAttribute("onclick", "deleteEntry()");
+                }
+            }
+
+        }
+        /**add or delete an event*/
+        document.getElementById("delete").addEventListener("click", function ()
+        {
+
+        }, false);
+
+    }
+
+</script>
+
+
+/** input your time for the event you want to keep track of*/
+<input id = "myTime" type="time"/>
+<br>
+<br>
+<br>
+<br>
+/**set up the box for where to type the event*/
+<textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'>
+</textarea>
+
+<br>
+/** save button was made*/
+<button id="save">Save</button>
+&nbsp;/** delete button was made*/ &nbsp; &nbsp; &nbsp;
+<button id="delete">Delete</button>
+
+<br>
+<br>
+<br>
+<table id = "myTable">
+
+/**work with the table to see if it will store and work with clear button*/
+</table>
+<!--<button id="save">Clear</button>-->
+
+<script type="text/javascript">
+
+    function pad2(number) {
+
+        return (number < 10 ? '0' : '') + number
+
+    }
+
+    function intToMonth(j)
+    {
+        /** list the months and keep track of how many days and first of each month*/
+        var x = ""
+        if (j == 1 || j == 13) {x = "January"}
+        else if(j == 2) {x = "February"}
+        else if(j == 3) {x = "March"}
+        else if(j == 4) {x = "April"}
+        else if(j == 5) {x = "May"}
+        else if(j == 6) {x = "June"}
+        else if(j == 7) {x = "July"}
+        else if(j == 8) {x = "August"}
+        else if(j == 9) {x = "September"}
+        else if(j == 10) {x = "October"}
+        else if(j == 11) {x = "November"}
+        else if(j == 12 || j == 0) {x = "December"}
+        return x
+    }
+    /** save the event*/
+    document.getElementById("save").addEventListener("click", function ()
+    {
+        /**variables for the event creation in which you store the date, time and text*/
+        var event = document.getElementById("user").value ;
+        var month = localStorage["month"];
+        var dayNum = localStorage["dayNum"];
+        var date = month + "/" + dayNum;
+
+        var time = document.getElementById("myTime").value;
+        if(time == "" )
+        {
+            alert("Please enter a time for this event!")
+        }
+        else if(event == "")
+        {
+            alert("Please enter your event!")
+        }
+        else
+        {
+            var eventVar = date + "/" + time;
+            localStorage.setItem(eventVar, event)
+            alert("Saved!")
+            window.location.reload();
+        }
+    } , false);
+
+    document.getElementById("delete").addEventListener("click", function ()
+    /** delete an event*/
+    {
+        var recNum = prompt("Please enter the record number you would like to delete");
+        if(recNum != null)
+        {
+            var eventVar = sessionStorage.getItem(recNum);
+            localStorage.removeItem(eventVar);
+            alert("Event deleted!")
+            window.location.reload();
+        }
+        else
+        {
+            /** when nothing is inputed so it was not deleted*/
+            alert("No record number was input, so nothing was deleted.")
+        }
+
+    } , false);
+/**used w3schools.com for reference*/
+
+</script>
+
+
+</body>
+
+</html>
+
