@@ -25,6 +25,11 @@
             background-color: #696969
         }
 
+        .event {
+            background-color: #7190E9;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body onload="setWeek()">
@@ -44,6 +49,12 @@
 </script>
 
 <script>
+
+    function pad2(number) {
+
+        return (number < 10 ? '0' : '') + number
+
+    }
 
     function setWeek(){
         var month = localStorage["month"] ;
@@ -208,14 +219,50 @@
         //TABLE ROWS
             var tr = document.createElement('TR');
             //if (f + l >= 35 || weekNum < 5)
-            for (j = 0; j < cal[weekNum].length; j++) {
+            for (a = 0; a < cal[weekNum].length; a++)
+            {
                 var td = document.createElement('TD')
-                td.setAttribute("class", "days")
-                td.setAttribute("onclick", "openDay(" + cal[weekNum][j] + ")")
+                if(cal[weekNum][a] != "")
+                {
+                    td.setAttribute("class", "days")
+                    var dayNum = cal[weekNum][a]
+                    var date = localStorage["month"] + "/" + dayNum
+                    for (var i = 1; i < 25; i++)
+                    {
+                        for (var j = 0; j < 60; j++)
+                        {
+                            var eventVar = date + "/" + pad2(i) + ":" + pad2(j);
+                            if (localStorage[eventVar] != undefined)
+                            {
+                                td.setAttribute("class", "event")
+                            }
+                        }
+                    }
 
-                td.appendChild(document.createTextNode(cal[weekNum][j]));
+                    td.setAttribute("onclick", "openDay(" + cal[weekNum][a] + ")")
+                }
+
+                td.appendChild(document.createTextNode(cal[weekNum][a]));
                 tr.appendChild(td)
             }
+            /*for (a = 0; a < cal[weekNum].length; a++)
+            {
+                var dayNum = cal[weekNum][a]
+                var date = localStorage["month"] + "/" + dayNum
+                for (var i = 1; i < 25; i++)
+                {
+                    for (var j = 0; j < 60; j++)
+                    {
+                        var eventVar = date + "/" + pad2(i) + ":" + pad2(j);
+                        if (localStorage[eventVar] != undefined) {
+                            td.setAttribute("class", "event")
+                        }
+                    }
+                }
+            }*/
+
+
+
             tableBody.appendChild(tr);
         myTableDiv.appendChild(name)
         myTableDiv.appendChild(table)
