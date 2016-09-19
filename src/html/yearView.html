@@ -128,9 +128,9 @@
         <!--2016-->
         <div class="row months">
             <h2>2016</h2>
-            <!--clickable button takes you to month view with reference (number) corresponding to month in local storage-->
-            <!--repeat for each month-->
+            <!--clickable button takes you to month view-->
             <div id = "a" class="col-lg-1">  <a href="monthlyView.html" class="button hvr-underline-from-center"> <p>August</p></a></div>
+            <!--embedded javascript gives each month an individual id with reference (number) corresponding to month in local storage-->
             <script>
                 document.getElementById("a").addEventListener("click", function ()
                 {
@@ -138,6 +138,7 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
+            <!--repeat for each month...-->
             <div id = "b" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>September</p></a></div>
             <script>
                 document.getElementById("b").addEventListener("click", function ()
@@ -200,7 +201,6 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-
             <div id = "i" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>April</p></a></div>
             <script>
                 document.getElementById("i").addEventListener("click", function ()
