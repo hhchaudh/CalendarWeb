@@ -2,6 +2,31 @@
 <html class="no-js" lang="">
 <head>
     <style>
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4163A9;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+
+        .button:hover {background-color: #60646C}
+
+        .button:active {
+            background-color: #60646C;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+
+    <style>
         table {
             table-layout: fixed;
             width: 35%;
@@ -10,17 +35,69 @@
         td {
             word-wrap:break-word;
             padding: 8px;
+            text-align: center;
+
         }
 
-        .days:hover {
-            background-color: #696969
+        body{
+
         }
+
+        .formfield * {
+            vertical-align: middle;
+            horiz-align: right;
+        }
+
+    </style>
+
+    <style>
+
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+        body{
+            font-family: "Open Sans",  Impact;
+            text-align:center;
+        }
+        .area{
+            text-align:center;
+            font-size:2.0em;
+            color:#fff;
+            letter-spacing: -7px;
+            font-weight:700;
+            text-transform:uppercase;
+            animation:blur 1.25s ease-out infinite;
+            text-shadow:0px 0px 5px #fff,
+            0px 0px 7px #fff;
+        }
+
+        @keyframes blur{
+            from{
+                text-shadow:0px 0px 10px #fff,
+                0px 0px 10px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 50px #fff,
+                0px 0px 50px #fff,
+                0px 0px 50px #7B96B8,
+                0px 0px 150px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px -10px 100px #7B96B8,
+                0px -10px 100px #7B96B8;}
+        }
+
     </style>
 </head>
 
 <body onload="tableCreate()">
 
-<div id="dateDisplay" >
+<div class = "area" id="dateDisplay" >
 
 </div>
 
@@ -50,7 +127,8 @@
         var date = month + "/" + dayNum;
         var dispDate = monthName + ", " + dayNum;
         var name = document.createElement("H")
-        name.setAttribute("id", "dateDisplay")
+        name.setAttribute("id", "dateDisplay");
+        name.setAttribute("class", "area");
         var text = document.createTextNode(dispDate)
         name.appendChild(text)
 
@@ -112,27 +190,27 @@
 
 
 
-<input id = "myTime" type="time"/>
+<input id = "myTime" type="time" />
 <br>
 <br>
 <br>
 <br>
 
-<textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'>
-</textarea>
+<p class="formfield">
+    <textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'></textarea>
+</p>
+
+<table id = "myTable"></table>
 
 <br>
-<button id="save">Save</button>
+<br>
+<br>
+<br>
+<button class = "button" id="save">Save</button>
 &nbsp; &nbsp; &nbsp; &nbsp;
-<button id="delete">Delete</button>
-
-<br>
-<br>
-<br>
-<table id = "myTable">
+<button class = "button" id="delete">Delete</button>
 
 
-</table>
 <!--<button id="save">Clear</button>-->
 
 <script type="text/javascript">
@@ -213,9 +291,7 @@
 
     } , false);
 
-
 </script>
-
 
 </body>
 

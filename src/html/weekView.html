@@ -14,11 +14,18 @@
         td {
             padding: 8px;
             text-align: center;
+            color:white;
         }
 
         th {
             padding: 8px;
             text-align: center;
+            color:white;
+
+        }
+        body{
+            background-image: url("dubai2.jpg");
+            background-repeat: no-repeat;
         }
 
         .days:hover {
@@ -26,8 +33,52 @@
         }
 
         .event {
-            background-color: #7190E9;
+            background-color: #4163A9;
             font-weight: bold;
+        }
+
+    </style>
+
+    <style>
+
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+        body{
+            font-family: "Open Sans",  Impact;
+            text-align: center;
+        }
+        .area{
+            text-align:center;
+            font-size:6.5em;
+            color:#fff;
+            letter-spacing: -7px;
+            font-weight:700;
+            text-transform:uppercase;
+            animation:blur 1.25s ease-out infinite;
+            text-shadow:0px 0px 5px #fff,
+            0px 0px 7px #fff;
+        }
+
+        @keyframes blur{
+            from{
+                text-shadow:0px 0px 10px #fff,
+                0px 0px 10px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 50px #fff,
+                0px 0px 50px #fff,
+                0px 0px 50px #7B96B8,
+                0px 0px 150px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px -10px 100px #7B96B8,
+                0px -10px 100px #7B96B8;}
         }
 
     </style>
@@ -37,6 +88,7 @@
 
 <div id="Month Name" >
 </div>
+
 
 <script type="text/javascript">
 
@@ -156,10 +208,9 @@
         var weekNum = localStorage["weekNum"]
         var name = document.createElement("H")
         name.setAttribute("id", "monthName")
+        name.setAttribute("class", "area");
         var text = document.createTextNode(monthName)
         name.appendChild(text)
-
-
 
         var myTableDiv = document.getElementById("Month Name")
         var table = document.createElement('TABLE')
@@ -248,6 +299,22 @@
 
             tableBody.appendChild(tr);
         myTableDiv.appendChild(name);
+        var s = document.createElement('br');
+        var t = document.createElement('br');
+        var u = document.createElement('br');
+        var v = document.createElement('br');
+        var w = document.createElement('br');
+        var x = document.createElement('br');
+        var y = document.createElement('br');
+        var z = document.createElement('br');
+        myTableDiv.appendChild(s);
+        myTableDiv.appendChild(t);
+        myTableDiv.appendChild(u);
+        myTableDiv.appendChild(v);
+        myTableDiv.appendChild(w);
+        myTableDiv.appendChild(x);
+        myTableDiv.appendChild(y);
+        myTableDiv.appendChild(z);
         myTableDiv.appendChild(table);
     }
 
