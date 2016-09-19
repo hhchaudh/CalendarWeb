@@ -148,17 +148,10 @@ Event   &nbsp;
 
 <script type="text/javascript">
 
-    function deleteEntry() {
-        //alert(id)
-        //localStorage.removeItem(id);
-        alert("Event deleted!");
-    }
-
-</script>
-
-<script type="text/javascript">
-
-    //modification of table insertRow() method from w3schools.com
+    /*modification of table insertRow() method from w3schools.com
+    @summary:creates a table of stored records for this day, executes a check to see if there are any
+    *saved records for that day by looping through the 24 hours of the day and accessing local storage.
+     */
     function tableCreate()
     {
         var month = localStorage["month"];
