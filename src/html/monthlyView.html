@@ -14,11 +14,18 @@
         td {
             padding: 8px;
             text-align: center;
+            color:white;
         }
 
         th {
             padding: 8px;
             text-align: center;
+            color:white;
+        }
+        body {
+            background-image: url("dubai2.jpg");
+            background-repeat: no-repeat;
+
         }
 
         .days:hover {
@@ -26,8 +33,79 @@
         }
 
         .event {
-            background-color: #7190E9;
+            background-color: #4163A9;
             font-weight: bold;
+        }
+
+    </style>
+
+
+    <style>
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4163A9;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+
+        .button:hover {background-color: #60646C}
+
+        .button:active {
+            background-color: #60646C;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+
+<!--http://www.hongkiat.com/blog/css-text-effects-->
+    <style>
+
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+        body{
+            font-family: "Open Sans",  Impact;
+            text-align: center;
+        }
+        .area{
+            text-align:center;
+            font-size:6.5em;
+            color:#fff;
+            letter-spacing: -7px;
+            font-weight:700;
+            text-transform:uppercase;
+            animation:blur .75s ease-out infinite;
+            text-shadow:0px 0px 5px #fff,
+            0px 0px 7px #fff;
+        }
+
+        @keyframes blur{
+            from{
+                text-shadow:0px 0px 10px #fff,
+                0px 0px 10px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 25px #fff,
+                0px 0px 50px #fff,
+                0px 0px 50px #fff,
+                0px 0px 50px #7B96B8,
+                0px 0px 150px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px 10px 100px #7B96B8,
+                0px -10px 100px #7B96B8,
+                0px -10px 100px #7B96B8;}
         }
 
     </style>
@@ -178,7 +256,8 @@
 
         var name = document.createElement("H")
         var text = document.createTextNode(monthName)
-        name.appendChild(text)
+        name.appendChild(text);
+        name.setAttribute("class","area");
 
         var myTableDiv = document.getElementById("metric_results")
         var table = document.createElement('TABLE')
@@ -274,26 +353,52 @@
             }
             tableBody.appendChild(tr);
         }
-        myTableDiv.appendChild(name)
-        myTableDiv.appendChild(table)
 
-        var previous = document.createElement('BUTTON')
-        var next = document.createElement('BUTTON')
+        myTableDiv.appendChild(name);
+        var s = document.createElement('br');
+        var t = document.createElement('br');
+        var u = document.createElement('br');
+        var v = document.createElement('br');
+
+        myTableDiv.appendChild(s);
+        myTableDiv.appendChild(t);
+        myTableDiv.appendChild(u);
+        myTableDiv.appendChild(v);
+
+        myTableDiv.appendChild(table);
+
+        var w = document.createElement('br');
+        var x = document.createElement('br');
+        var y = document.createElement('br');
+        var z = document.createElement('br');
+
+        var previous = document.createElement('BUTTON');
+        var foo = document.createTextNode('\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0');
+        var next = document.createElement('BUTTON');
+        previous.setAttribute("class","button");
         previous.setAttribute('onclick', "changeMonth(" + (month - 1) + ")")
+        next.setAttribute("class", "button");
         next.setAttribute('onclick', "changeMonth(" + (month - -1) + ")")
         //previous.setAttribute('onclick', "changeTest()")
             //"setCurrentMonth(" + month + ");window.location.href='monthlyView.html'")
         //previous.setAttribute('onclick', 'history.go(0)')
-        var text = document.createTextNode("Previous Month")
-        previous.appendChild(text)
-        text = document.createTextNode("Next Month")
-        next.appendChild(text)
-        myTableDiv.appendChild(previous)
-        myTableDiv.appendChild(next)
+        var text = document.createTextNode("Previous Month");
+        previous.appendChild(text);
+        text = document.createTextNode("Next Month");
+        next.appendChild(text);
+        myTableDiv.appendChild(w);
+        myTableDiv.appendChild(x);
+        myTableDiv.appendChild(y);
+        myTableDiv.appendChild(z);
+        myTableDiv.appendChild(previous);
+        myTableDiv.appendChild(foo);
+        myTableDiv.appendChild(next);
+
     }
 
 </script>
-
+<br>
+<br>
 
 </body>
 </html>
