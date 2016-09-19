@@ -7,8 +7,8 @@
     <style>
         p{
             display: inline-block;
-            text-decoration: none;
-            color: white;
+            font-family: 'Lobster Two', cursive;
+
         }
         /* Underline From Center */
         .hvr-underline-from-center {
@@ -44,6 +44,15 @@
             right: 0;
         }
 
+        div.current-date{
+            color: skyblue;
+            text-align: center;
+            position: fixed;
+            top: 1%;
+            left: 85%;
+            font-size: 20px;
+        }
+
         .button {
             font-size: 20px;
             float: left;
@@ -73,6 +82,7 @@
             position: relative;
             left: 200px;
             padding: 20px;
+            font-size: 30px;
         }
         h2{
             text-align: left;
@@ -229,8 +239,17 @@
 
         <div class="line"></div>
 
-        <div class="current-date">Monday, September 19</div>
+
     </div><!-- end calendar-body -->
+
+    <div class="current-date">
+        <p>Today is:</p>
+        <p id="today"></p>
+        <script>
+                var d = new Date();
+                document.getElementById("today").innerHTML = d.toDateString();
+        </script>
+    </div>
 </div><!-- end wrapper -->
 
 </body>
