@@ -2,16 +2,13 @@
 <html class="no-js" lang="">
 <head>
     <style>
-        .form{
-            position:static;
-            left:90%;
-        }
+
         .button {
             display: inline-block;
             padding: 15px 25px;
             font-size: 24px;
             cursor: pointer;
-            text-align: center;
+            text-align: right;
             text-decoration: none;
             outline: none;
             color: #fff;
@@ -34,25 +31,21 @@
         table {
             table-layout: fixed;
             width: 35%;
-            position: static;
-            left: 33%;
         }
 
         td {
             word-wrap:break-word;
             padding: 8px;
-            text-align: center;
-
+            color:white;
+            font-weight: 900;
         }
 
         body{
-
+            background-image: url("dubai2.jpg");
+            background-repeat: no-repeat;
+            background-color: black;
         }
 
-        .formfield * {
-            vertical-align: middle;
-            horiz-align: right;
-        }
 
     </style>
 
@@ -62,7 +55,12 @@
 
         body{
             font-family: "Open Sans",  Impact;
-            text-align:center;
+            text-align:left;
+        }
+
+        p{
+            color:white;
+            font-weight: 900;
         }
         .area{
             text-align:center;
@@ -101,9 +99,7 @@
     </style>
 </head>
 
-<div class="form">
 <body onload="tableCreate()">
-</div>
 
 <div class = "area" id="dateDisplay" >
 
@@ -112,6 +108,43 @@
 
 <br>
 <br>
+
+<p>Time:</p>
+<input id = "myTime" type="time" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<button class = "button" id="save">Save</button>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<button class = "button" id="delete">Delete</button>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+<button id="myButton" class="button" >Home</button>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "yearView.html";
+    };
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'></textarea>
+
+<p>Record Number
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+Time
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+Event   &nbsp;
+</p>
+<table id = "myTable"></table>
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+
 
 <script type="text/javascript">
 
@@ -122,6 +155,7 @@
     }
 
 </script>
+
 <script type="text/javascript">
 
     //modification of table insertRow() method from w3schools.com
@@ -194,29 +228,6 @@
     }
 
 </script>
-
-
-<input id = "myTime" type="time" />
-<br>
-<br>
-<br>
-<br>
-
-
-<p class="formfield">
-    <textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'></textarea>
-</p>
-
-<table id = "myTable"></table>
-
-<br>
-<br>
-<br>
-<br>
-<button class = "button" id="save">Save</button>
-&nbsp; &nbsp; &nbsp; &nbsp;
-<button class = "button" id="delete">Delete</button>
-
 
 <!--<button id="save">Clear</button>-->
 
