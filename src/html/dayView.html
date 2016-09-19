@@ -149,8 +149,9 @@ Event   &nbsp;
 <script type="text/javascript">
 
     /*modification of table insertRow() method from w3schools.com
-    @summary:creates a table of stored records for this day, executes a check to see if there are any
+    @summary creates a table of stored records for this day, executes a check to see if there are any
     *saved records for that day by looping through the 24 hours of the day and accessing local storage.
+    *
      */
     function tableCreate()
     {
@@ -249,7 +250,11 @@ Event   &nbsp;
         else if(j == 12 || j == 0) {x = "December"}
         return x
     }
-
+/*
+    *@summary saves what record user wants to save given eventVariable (date specific var) to local storage
+    *@return alert saying success or fail
+    *
+    */
     document.getElementById("save").addEventListener("click", function ()
     {
         var event = document.getElementById("user").value ;
@@ -275,6 +280,11 @@ Event   &nbsp;
         }
     } , false);
 
+    /*
+    *@summary creates a table of stored records for this day, executes a check to see if there are any
+    *saved records for that day by looping through the 24 hours of the day and accessing local storage.
+    **@return alerts user either of deletion failure or success
+    */
     document.getElementById("delete").addEventListener("click", function ()
     {
         var recNum = prompt("Please enter the record number you would like to delete");
@@ -292,8 +302,6 @@ Event   &nbsp;
             {
                 alert("No event found at that record number!")
             }
-
-
         }
         else
         {
