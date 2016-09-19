@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
-    <!--http://ianlunn.github.io/Hover/-->
-    <link href="css/hover.css" rel="stylesheet" media="all">
+    <!--Importing font from google-->
     <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!--Styling-->
     <style>
+        /*month names and "current date"*/
         p{
             display: inline-block;
             font-family: 'Lobster Two', cursive;
             font-size: 27px;
-
         }
-        /* Underline From Center */
+
+        /*Displaying month names--- CSS to underline from center upon hover is cited code--*/
         .hvr-underline-from-center {
             display: inline-block;
             vertical-align: middle;
@@ -22,7 +28,9 @@
             backface-visibility: hidden;
             -moz-osx-font-smoothing: grayscale;
             position: relative;
+            padding: 12px;
             overflow: hidden;
+            color: white;
         }
         .hvr-underline-from-center:before {
             content: "";
@@ -45,6 +53,7 @@
             right: 0;
         }
 
+        /*position and syling for current date*/
         div.current-date{
             color: skyblue;
             text-align: center;
@@ -54,28 +63,14 @@
             font-size: 20px;
         }
 
-        .button {
-            font-size: 20px;
-            float: left;
-            width: 150px;
-            display: inline-block;
-            padding: 16px 16px;
-            text-align: center;
-            background-color: Transparent;
-            text-decoration: none;
-            color: lightgray;
-            border-radius: 20px;
-        }
+        /*background*/
         body {
             background-image: url("dubai2.jpg");
             background-repeat: no-repeat;
             overflow-x:hidden;
         }
-       /* .header{
-            text-align: center;
-            color: skyblue;
-            font-family: 'Baloo', cursive;
-        }*/
+
+        /*positioning for table of months and 2016/2017*/
         .calendar-body{
             text-align: center;
             font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
@@ -89,6 +84,7 @@
             text-align: left;
         }
 
+        /*CSS to make title slide in*/
         div.slide-left {
             width:100%;
             overflow:hidden;
@@ -102,7 +98,6 @@
             text-align: center;
             text-shadow: 0 0 5px #fdfffd;
         }
-
         @keyframes slide-left {
             from {
                 margin-left: 10%;
@@ -114,27 +109,27 @@
                 width: 100%;
             }
         }
-
     </style>
-
 </head>
+
 <body>
-<title>Calendar Component</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<title>404 Calendar</title>
 
 <!-- HTML SECTION -->
 
+<!--whole page-->
 <div class="wrapper">
 
-        <div class="slide-left"><h1>Welcome to Your Calendar</h1></div>
+    <!--Header-->
+    <div class="slide-left"><h1>Welcome to Your Calendar</h1></div>
 
+    <!--months-->
     <div class="calendar-body">
-
+        <!--2016-->
         <div class="row months">
             <h2>2016</h2>
+            <!--clickable button takes you to month view with reference (number) corresponding to month in local storage-->
+            <!--repeat for each month-->
             <div id = "a" class="col-lg-1">  <a href="monthlyView.html" class="button hvr-underline-from-center"> <p>August</p></a></div>
             <script>
                 document.getElementById("a").addEventListener("click", function ()
@@ -176,8 +171,9 @@
                     localStorage.setItem("month", month);
                 } , false);
             </script>
-        </div><!-- end row -->
+        </div>
 
+        <!--2017-->
         <div class="row months">
             <h2>2017</h2>
             <div id = "f" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>January</p></a></div>
@@ -238,12 +234,9 @@
                 } , false);
             </script>
         </div><!-- end row -->
-
-        <div class="line"></div>
-
-
     </div><!-- end calendar-body -->
 
+    <!--printing current date in top right-->
     <div class="current-date">
         <p>Today is:</p>
         <p id="today"></p>
@@ -252,7 +245,7 @@
                 document.getElementById("today").innerHTML = d.toDateString();
         </script>
     </div>
-</div><!-- end wrapper -->
+    </div><!-- end wrapper -->
 
 </body>
 
