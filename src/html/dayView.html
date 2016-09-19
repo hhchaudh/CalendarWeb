@@ -2,6 +2,10 @@
 <html class="no-js" lang="">
 <head>
     <style>
+        .form{
+            position:static;
+            left:90%;
+        }
         .button {
             display: inline-block;
             padding: 15px 25px;
@@ -30,6 +34,8 @@
         table {
             table-layout: fixed;
             width: 35%;
+            position: static;
+            left: 33%;
         }
 
         td {
@@ -95,7 +101,9 @@
     </style>
 </head>
 
+<div class="form">
 <body onload="tableCreate()">
+</div>
 
 <div class = "area" id="dateDisplay" >
 
@@ -114,7 +122,6 @@
     }
 
 </script>
-
 <script type="text/javascript">
 
     //modification of table insertRow() method from w3schools.com
@@ -189,12 +196,12 @@
 </script>
 
 
-
 <input id = "myTime" type="time" />
 <br>
 <br>
 <br>
 <br>
+
 
 <p class="formfield">
     <textarea id="user" rows="20" cols="50" placeholder='What do you need to do?'></textarea>
