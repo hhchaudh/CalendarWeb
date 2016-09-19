@@ -3,7 +3,7 @@
 <head>
     <!--http://ianlunn.github.io/Hover/-->
     <link href="css/hover.css" rel="stylesheet" media="all">
-    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
     <style>
         p{
             display: inline-block;
@@ -54,24 +54,55 @@
             background-color: Transparent;
             text-decoration: none;
             color: lightgray;
-            border-radius: 4px;
+            border-radius: 20px;
         }
         body {
             background-image: url("dubai2.jpg");
             background-repeat: no-repeat;
+            overflow-x:hidden;
         }
-        .header{
+       /* .header{
             text-align: center;
             color: skyblue;
             font-family: 'Baloo', cursive;
-        }
+        }*/
         .calendar-body{
-            font-family: 'Baloo', cursive;
+            text-align: center;
+            font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
             color: skyblue;
             position: relative;
-            left: 100px;
+            left: 200px;
             padding: 20px;
         }
+        h2{
+            text-align: left;
+        }
+
+        div.slide-left {
+            width:100%;
+            overflow:hidden;
+        }
+        div.slide-left h1 {
+            animation: slide-left 2s;
+            color: skyblue;
+            font-family: 'Lobster Two', cursive;
+            font-size: 80px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        @keyframes slide-left {
+            from {
+                margin-left: 10%;
+                width: 100%;
+            }
+
+            to {
+                margin-left: 0%;
+                width: 100%;
+            }
+        }
+
     </style>
 
 </head>
@@ -85,14 +116,13 @@
 <!-- HTML SECTION -->
 
 <div class="wrapper">
-    <div class="header">
-        <h1>Welcome To Your Calendar</h1>
 
-    </div><!-- end header -->
+        <div class="slide-left"><h1>Welcome to Your Calendar</h1></div>
+
     <div class="calendar-body">
 
         <div class="row months">
-            <h3>2016</h3>
+            <h2>2016</h2>
             <div id = "a" class="col-lg-1">  <a href="monthlyView.html" class="button hvr-underline-from-center"> <p>August</p></a></div>
             <script>
                 document.getElementById("a").addEventListener("click", function ()
@@ -137,7 +167,7 @@
         </div><!-- end row -->
 
         <div class="row months">
-            <h3>2017</h3>
+            <h2>2017</h2>
             <div id = "f" class="col-lg-1"><a href="monthlyView.html" class="button hvr-underline-from-center"><p>January</p></a></div>
             <script>
                 document.getElementById("f").addEventListener("click", function ()
